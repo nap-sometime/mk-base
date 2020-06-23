@@ -1,19 +1,25 @@
 <template>
 	<div class="hello">
 		<img src="@/assets/logo.png" width="120" />
-		<h1>render from @mk-auth</h1>
+		<h1>render from {{ getAppName }}</h1>
 		<button @click="toggle">show</button>
 		<Greet v-if="showInnerComponent" />
 	</div>
 </template>
 
-<script>
+<script lang="ts">
 import Vue from 'vue';
+import { getEnv } from '../utils/get_env';
 
 export default Vue.extend({
 	data: () => ({
 		showInnerComponent: false,
 	}),
+	computed: {
+		getAppName(): string {
+			return getEnv('npm_package_name');
+		},
+	},
 	components: {
 		Greet: () => import('@/components/Greet.vue'),
 	},
