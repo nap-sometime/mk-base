@@ -25,7 +25,7 @@ export default Vue.extend({
 			return 'hi';
 		},
 		getAppName(): string {
-			return getEnv(name);
+			return getEnv('npm_package_name');
 		},
 	},
 	methods: {

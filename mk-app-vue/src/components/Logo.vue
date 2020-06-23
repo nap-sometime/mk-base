@@ -17,7 +17,7 @@ export default Vue.extend({
 	}),
 	computed: {
 		getAppName(): string {
-			return getEnv(name);
+			return getEnv('npm_package_name');
 		},
 	},
 	components: {
