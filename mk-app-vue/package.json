@@ -7,10 +7,12 @@
     "serve": "vue-cli-service serve",
     "dev": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "test": "jest --passWithNoTests"
   },
   "dependencies": {
     "core-js": "^3.6.5",
+    "jest": "^26.0.1",
     "single-spa-vue": "^1.5.2",
     "systemjs-webpack-interop": "^2.1.1",
     "vue": "^2.6.11",
@@ -19,6 +21,7 @@
   },
   "devDependencies": {
     "@babel/preset-typescript": "^7.10.1",
+    "@types/jest": "^26.0.0",
     "@types/js-cookie": "^2.2.6",
     "@types/node": "^12",
     "@vue/cli-plugin-babel": "~4.4.0",
