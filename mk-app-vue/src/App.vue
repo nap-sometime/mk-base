@@ -1,12 +1,12 @@
 <template>
-	<div id="mk-auth">
+	<div id="app-container">
 		<router-view></router-view>
 	</div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
-import { getAuthInfo } from '@/utils/auth';
+import { getEnv } from './utils/get_env';
 import { MetaInfo } from 'vue-meta';
 
 export default Vue.extend({
@@ -14,7 +14,7 @@ export default Vue.extend({
 	metaInfo(): MetaInfo {
 		return {
 			title: this.getTitle,
-			titleTemplate: '%s | Auth',
+			titleTemplate: `%s | ${this.getAppName}`,
 		};
 	},
 	mounted() {
@@ -22,8 +22,10 @@ export default Vue.extend({
 	},
 	computed: {
 		getTitle(): string {
-			const authInfo = getAuthInfo();
-			return (authInfo && authInfo.username) || 'hi';
+			return 'hi';
+		},
+		getAppName(): string {
+			return getEnv(name);
 		},
 	},
 	methods: {
@@ -32,7 +34,7 @@ export default Vue.extend({
 			if (!timer) clearInterval(timer);
 
 			timer = setInterval(() => {
-				console.log(`${Date.now()} - @mk/auth`);
+				console.log(`${Date.now()} - ${this.getAppName}`);
 			}, 5000);
 		},
 	},
@@ -40,7 +42,7 @@ export default Vue.extend({
 </script>
 
 <style scoped>
-#mk-auth {
+#app-container {
 	font-family: Avenir, Helvetica, Arial, sans-serif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
