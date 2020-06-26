@@ -6,8 +6,9 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import { getEnv } from './utils/get_env';
 import { MetaInfo } from 'vue-meta';
+
+import { getEnv } from './utils/get_env';
 
 export default Vue.extend({
 	name: 'App',

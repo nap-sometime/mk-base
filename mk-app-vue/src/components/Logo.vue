@@ -9,6 +9,7 @@
 
 <script lang="ts">
 import Vue from 'vue';
+
 import { getEnv } from '../utils/get_env';
 
 export default Vue.extend({
