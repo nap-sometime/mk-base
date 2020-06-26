@@ -1,5 +1,6 @@
-const path = require('path');
 const { readFileSync } = require('fs');
+const path = require('path');
+
 const { name: npm_package_name } = require('./package.json');
 
 // pass thought client env via VUE_APP_*
@@ -11,7 +12,7 @@ const loadFile = (path = '') => readFileSync(path);
 
 // config webpack dev server
 const devServer = isProd
-	? undefined
+	? false
 	: {
 			headers: {
 				'Access-Control-Allow-Origin': '*',
